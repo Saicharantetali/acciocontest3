@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Crypto Market Data</title>
+</head>
+<body>
+  <header>
+    <h1>Crypto Market Data</h1>
+  </header>
+  <div class="tabs">
+    <button id="grid-tab" class="active">Grid View</button>
+    <button id="list-tab">List View</button>
+  </div>
+  <div id="crypto-container" class="grid-view"></div>
+  <table id="crypto-table" class="list-view" style="display:none;">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Current Price (USD)</th>
+        <th>Market Cap</th>
+        <th>24h Price Change (%)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.tabs button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+#crypto-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
+}
+
+.grid-view .crypto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.grid-view .crypto-card:hover {
+  transform: translateY(-5px);
+}
+
+.list-view {
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-view th,
+.list-view td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-view th {
+  background-color: #007bff;
+  color: white;
+}
+
+.list-view td img {
+  max-width: 40px;
+  height: auto;
+  border-radius: 50%;
+}
